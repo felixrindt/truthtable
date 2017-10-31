@@ -1,0 +1,214 @@
+%Felix Rindt default vanilla \LaTeX Template
+
+\documentclass[11pt, landscape]{article}
+
+%Tools
+\usepackage{graphicx} 
+\usepackage[export]{adjustbox}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[version=4]{mhchem}
+\usepackage{lipsum}
+\usepackage{url}
+\usepackage{siunitx}
+\usepackage{titling}
+\usepackage{pgf,tikz}
+
+%Language
+\usepackage[utf8x]{inputenc}
+%\usepackage[ngerman]{babel}
+\usepackage[ngerman]{babel}
+\sisetup{ %must go after siunitx impot
+  locale = DE %
+  %per-mode = symbol
+}
+
+\newcommand{\say}[1]{\glqq{#1}\grqq}%https://www.sharelatex.com/learn/Typesetting_quotations
+
+\newcommand{\sayloud}[2]{\begin{center}\say{#1}
+\begin{flushright}--- #2\hphantom{10mm}\end{flushright}\end{center}}
+
+%roman numerals
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%
+% PAGE SETUP
+%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[a4paper, margin=1in]{geometry}
+
+
+\newcommand{\setdocdata}{
+\title{Übertoller Titel in \LaTeX}
+\author{Felix Rindt\\ Institution}
+\date{\today}}
+\setdocdata
+
+\newcommand{\AND}{{\wedge}}
+\newcommand{\OR}{{\vee}}
+\newcommand{\IMP}{{\rightarrow}}
+\newcommand{\AEQ}{{\Leftrightarrow}}
+
+%%%%%%%%%%%%%%%%%%%
+% DOCUMENT
+%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{tabular}{|c|c|cccccccccccccc|} \hline
+$a$&$b$&$!$&$($&$a$&$or$&$!$&$b$&$)$&$=$&$!$&$($&$b$&$>$&$a$&$)$\tabularnewline\hline\hline
+0&0&0&&0&1&1&0&&\textbf{1}&0&&0&1&0&\\\hline
+0&1&1&&0&0&0&1&&\textbf{1}&1&&1&0&0&\\\hline
+1&0&0&&1&1&1&0&&\textbf{1}&0&&0&1&1&\\\hline
+1&1&0&&1&1&0&1&&\textbf{1}&0&&1&1&1&\\\hline
+\end{tabular}
+
+\vspace{1cm}
+
+\begin{tabular}{|c|c|c|ccccccccccccccccccc|} \hline
+$p$&$q$&$r$&$p$&$\AND$&$($&$q$&$\OR$&$r$&$)$&$\AEQ$&$($&$p$&$\AND$&$q$&$)$&$\OR$&$($&$p$&$\AND$&$r$&$)$\\\hline
+0&0&0&0&0&&0&0&0&&\textbf{1}&&0&0&0&&0&&0&0&0&\\\hline
+0&0&1&0&0&&0&1&1&&\textbf{1}&&0&0&0&&0&&0&0&1&\\\hline
+0&1&0&0&0&&1&1&0&&\textbf{1}&&0&0&1&&0&&0&0&0&\\\hline
+0&1&1&0&0&&1&1&1&&\textbf{1}&&0&0&1&&0&&0&0&1&\\\hline
+1&0&0&1&0&&0&0&0&&\textbf{1}&&1&0&0&&0&&1&0&0&\\\hline
+1&0&1&1&1&&0&1&1&&\textbf{1}&&1&0&0&&1&&1&1&1&\\\hline
+1&1&0&1&1&&1&1&0&&\textbf{1}&&1&1&1&&1&&1&0&0&\\\hline
+1&1&1&1&1&&1&1&1&&\textbf{1}&&1&1&1&&1&&1&1&1&\\\hline
+\end{tabular}
+
+\vspace{1cm}
+
+\begin{tabular}{|c|c|cccc|} \hline
+$a$&$b$&$\neg$&$a$&$\AND$&$b$\\\hline
+0&0&1&0&\textbf{0}&0\\\hline
+0&1&1&0&\textbf{1}&1\\\hline
+1&0&0&1&\textbf{0}&0\\\hline
+1&1&0&1&\textbf{0}&1\\\hline
+\end{tabular}
+
+\vspace{1cm}
+
+\begin{tabular}{|c|c|c|cccccc|} \hline
+$a$&$b$&$c$&$a$&$\AND$&$!$&$b$&$and$&$c$\\\hline
+0&0&0&0&0&1&0&\textbf{0}&0\\\hline
+0&0&1&0&0&1&0&\textbf{0}&1\\\hline
+0&1&0&0&0&0&1&\textbf{0}&0\\\hline
+0&1&1&0&0&0&1&\textbf{0}&1\\\hline
+1&0&0&1&1&1&0&\textbf{0}&0\\\hline
+1&0&1&1&1&1&0&\textbf{1}&1\\\hline
+1&1&0&1&0&0&1&\textbf{0}&0\\\hline
+1&1&1&1&0&0&1&\textbf{0}&1\\\hline
+\end{tabular}
+
+\vspace{1cm}
+
+\begin{tabular}{|c|c|c|c|ccccccccccccccccccccccc|} \hline
+$a$&$b$&$c$&$d$&$($&$d$&$\AEQ$&$\neg$&$\neg$&$a$&$)$&$\AND$&$b$&$\OR$&$($&$\neg$&$c$&$\IMP$&$a$&$\AND$&$d$&$)$&$\AND$&$\neg$&$d$&$\AND$&$a$\\\hline
+0&0&0&0&&0&1&0&1&0&&0&0&\textbf{0}&&1&0&0&0&0&0&&0&1&0&0&0\\\hline
+0&0&0&1&&1&0&0&1&0&&0&0&\textbf{0}&&1&0&0&0&0&1&&0&0&1&0&0\\\hline
+0&0&1&0&&0&1&0&1&0&&0&0&\textbf{0}&&0&1&1&0&0&0&&1&1&0&0&0\\\hline
+0&0&1&1&&1&0&0&1&0&&0&0&\textbf{0}&&0&1&1&0&0&1&&0&0&1&0&0\\\hline
+0&1&0&0&&0&1&0&1&0&&1&1&\textbf{1}&&1&0&0&0&0&0&&0&1&0&0&0\\\hline
+0&1&0&1&&1&0&0&1&0&&0&1&\textbf{0}&&1&0&0&0&0&1&&0&0&1&0&0\\\hline
+0&1&1&0&&0&1&0&1&0&&1&1&\textbf{1}&&0&1&1&0&0&0&&1&1&0&0&0\\\hline
+0&1&1&1&&1&0&0&1&0&&0&1&\textbf{0}&&0&1&1&0&0&1&&0&0&1&0&0\\\hline
+1&0&0&0&&0&0&1&0&1&&0&0&\textbf{0}&&1&0&0&1&0&0&&0&1&0&0&1\\\hline
+1&0&0&1&&1&1&1&0&1&&0&0&\textbf{0}&&1&0&1&1&1&1&&0&0&1&0&1\\\hline
+1&0&1&0&&0&0&1&0&1&&0&0&\textbf{1}&&0&1&1&1&0&0&&1&1&0&1&1\\\hline
+1&0&1&1&&1&1&1&0&1&&0&0&\textbf{0}&&0&1&1&1&1&1&&0&0&1&0&1\\\hline
+1&1&0&0&&0&0&1&0&1&&0&1&\textbf{0}&&1&0&0&1&0&0&&0&1&0&0&1\\\hline
+1&1&0&1&&1&1&1&0&1&&1&1&\textbf{1}&&1&0&1&1&1&1&&0&0&1&0&1\\\hline
+1&1&1&0&&0&0&1&0&1&&0&1&\textbf{1}&&0&1&1&1&0&0&&1&1&0&1&1\\\hline
+1&1&1&1&&1&1&1&0&1&&1&1&\textbf{1}&&0&1&1&1&1&1&&0&0&1&0&1\\\hline
+\end{tabular}
+
+\vspace{1cm}
+
+\begin{tabular}{|c|c|c|ccccccccccccccccc|} \hline
+$a$&$b$&$c$&$\neg$&$($&$a$&$\OR$&$b$&$\IMP$&$c$&$\AEQ$&$\neg$&$c$&$\AND$&$($&$a$&$\OR$&$b$&$)$&$)$\\\hline
+0&0&0&\textbf{1}&&0&0&0&1&0&0&1&0&0&&0&0&0&&\\\hline
+0&0&1&\textbf{1}&&0&0&0&1&1&0&0&1&0&&0&0&0&&\\\hline
+0&1&0&\textbf{1}&&0&1&1&0&0&0&1&0&1&&0&1&1&&\\\hline
+0&1&1&\textbf{1}&&0&1&1&1&1&0&0&1&0&&0&1&1&&\\\hline
+1&0&0&\textbf{1}&&1&1&0&0&0&0&1&0&1&&1&1&0&&\\\hline
+1&0&1&\textbf{1}&&1&1&0&1&1&0&0&1&0&&1&1&0&&\\\hline
+1&1&0&\textbf{1}&&1&1&1&0&0&0&1&0&1&&1&1&1&&\\\hline
+1&1&1&\textbf{1}&&1&1&1&1&1&0&0&1&0&&1&1&1&&\\\hline
+\end{tabular}
+
+\vspace{1cm}
+
+\begin{tabular}{|c|c|c|ccccc|} \hline
+$a$&$b$&$c$&$a$&$\AEQ$&$b$&$\AEQ$&$c$\\\hline
+0&0&0&0&1&0&\textbf{0}&0\\\hline
+0&0&1&0&1&0&\textbf{1}&1\\\hline
+0&1&0&0&0&1&\textbf{1}&0\\\hline
+0&1&1&0&0&1&\textbf{0}&1\\\hline
+1&0&0&1&0&0&\textbf{1}&0\\\hline
+1&0&1&1&0&0&\textbf{0}&1\\\hline
+1&1&0&1&1&1&\textbf{0}&0\\\hline
+1&1&1&1&1&1&\textbf{1}&1\\\hline
+\end{tabular}
+
+\vspace{1cm}
+
+
+\begin{tabular}{|c|c|ccccccc|} \hline
+$a$&$b$&$a$&$\&$&$($&$a$&$|$&$b$&$)$\\\hline
+0&0&0&\textbf{0}&&0&0&0&\\\hline
+0&1&0&\textbf{0}&&0&1&1&\\\hline
+1&0&1&\textbf{1}&&1&1&0&\\\hline
+1&1&1&\textbf{1}&&1&1&1&\\\hline
+\end{tabular}
+
+\vspace{1cm}
+
+\begin{tabular}{|c|c|c|c|c|cccccccccc|} \hline
+$a$&$b$&$c$&$d$&$e$&$a$&$and$&$b$&$or$&$c$&$and$&$not$&$d$&$\rightarrow$&$e$\\\hline
+0&0&0&0&0&0&0&0&0&0&0&1&0&\textbf{1}&0\\\hline
+0&0&0&0&1&0&0&0&0&0&0&1&0&\textbf{1}&1\\\hline
+0&0&0&1&0&0&0&0&0&0&0&0&1&\textbf{1}&0\\\hline
+0&0&0&1&1&0&0&0&0&0&0&0&1&\textbf{1}&1\\\hline
+0&0&1&0&0&0&0&0&1&1&1&1&0&\textbf{0}&0\\\hline
+0&0&1&0&1&0&0&0&1&1&1&1&0&\textbf{1}&1\\\hline
+0&0&1&1&0&0&0&0&0&1&0&0&1&\textbf{1}&0\\\hline
+0&0&1&1&1&0&0&0&0&1&0&0&1&\textbf{1}&1\\\hline
+0&1&0&0&0&0&0&1&0&0&0&1&0&\textbf{1}&0\\\hline
+0&1&0&0&1&0&0&1&0&0&0&1&0&\textbf{1}&1\\\hline
+0&1&0&1&0&0&0&1&0&0&0&0&1&\textbf{1}&0\\\hline
+0&1&0&1&1&0&0&1&0&0&0&0&1&\textbf{1}&1\\\hline
+0&1&1&0&0&0&0&1&1&1&1&1&0&\textbf{0}&0\\\hline
+0&1&1&0&1&0&0&1&1&1&1&1&0&\textbf{1}&1\\\hline
+0&1&1&1&0&0&0&1&0&1&0&0&1&\textbf{1}&0\\\hline
+0&1&1&1&1&0&0&1&0&1&0&0&1&\textbf{1}&1\\\hline
+1&0&0&0&0&1&0&0&0&0&0&1&0&\textbf{1}&0\\\hline
+1&0&0&0&1&1&0&0&0&0&0&1&0&\textbf{1}&1\\\hline
+1&0&0&1&0&1&0&0&0&0&0&0&1&\textbf{1}&0\\\hline
+1&0&0&1&1&1&0&0&0&0&0&0&1&\textbf{1}&1\\\hline
+1&0&1&0&0&1&0&0&1&1&1&1&0&\textbf{0}&0\\\hline
+1&0&1&0&1&1&0&0&1&1&1&1&0&\textbf{1}&1\\\hline
+1&0&1&1&0&1&0&0&0&1&0&0&1&\textbf{1}&0\\\hline
+1&0&1&1&1&1&0&0&0&1&0&0&1&\textbf{1}&1\\\hline
+1&1&0&0&0&1&1&1&1&0&0&1&0&\textbf{0}&0\\\hline
+1&1&0&0&1&1&1&1&1&0&0&1&0&\textbf{1}&1\\\hline
+1&1&0&1&0&1&1&1&1&0&0&0&1&\textbf{0}&0\\\hline
+1&1&0&1&1&1&1&1&1&0&0&0&1&\textbf{1}&1\\\hline
+1&1&1&0&0&1&1&1&1&1&1&1&0&\textbf{0}&0\\\hline
+1&1&1&0&1&1&1&1&1&1&1&1&0&\textbf{1}&1\\\hline
+1&1&1&1&0&1&1&1&1&1&0&0&1&\textbf{0}&0\\\hline
+1&1&1&1&1&1&1&1&1&1&0&0&1&\textbf{1}&1\\\hline
+\end{tabular}
+
+
+
+\end{document}

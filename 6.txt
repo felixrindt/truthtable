@@ -1,0 +1,1 @@
+\neg(a\OR b \IMP c \AEQ \neg c \AND (a\OR b))
