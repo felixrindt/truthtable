@@ -162,13 +162,22 @@ def parse(token):
             right = not_e()
             expr = Binary(expr,operator,right)
         return expr
-    def or_e():
+    def xor_e():
         global current
         expr = and_e()
-        while token[current].art == TT_OR:
+        while token[current].art == TT_XOR:
             operator = token[current]
             current+=1
             right = and_e()
+            expr = Binary(expr,operator,right)
+        return expr
+    def or_e():
+        global current
+        expr = xor_e()
+        while token[current].art == TT_OR:
+            operator = token[current]
+            current+=1
+            right = xor_e()
             expr = Binary(expr,operator,right)
         return expr
     def imp_e():
@@ -212,6 +221,8 @@ def evaluate(expr, varval):
         vr, sr = evaluate(expr.right, varval)
         if expr.operator.art == TT_AND:
             r = vl and vr
+        elif expr.operator.art == TT_XOR:
+            r = vl != vr
         elif expr.operator.art == TT_OR:
             r = vl or vr
         elif expr.operator.art == TT_AEQ:

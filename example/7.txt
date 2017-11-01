@@ -1,0 +1,1 @@
+a \oplus a \land b \Leftrightarrow \lnot (a \rightarrow b)
