@@ -33,7 +33,7 @@ class Token:
 
 def tokenize(text):
     WHITESPACE = [" ", "\t", "\n", "\r"]
-    LETTER = list("abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    LETTER = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
     START = list("\\")
     SYMBOL = list("!<->=|^&")
     token = []
