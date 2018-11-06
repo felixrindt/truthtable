@@ -1,0 +1,1 @@
+a \land c \lor b \land d \implies (a \lor b) \land (c \lor d)

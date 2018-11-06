@@ -71,7 +71,7 @@ def tokenize(text):
                 token.append(Token(TT_XOR,t,i))
                 i=j
                 continue
-            if t.lower() in [">", "\\imp","\\rightarrow"]:
+            if t.lower() in [">", "\\imp","\\rightarrow", "\\implies"]:
                 token.append(Token(TT_IMP,t,i))
                 i=j
                 continue
