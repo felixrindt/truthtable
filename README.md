@@ -47,8 +47,6 @@ $ python3 truthtable.py examples/1.txt
 [output is printed...]
 ```
 
-¯\\_(ツ)_/¯
-
 ## Structure
 
 ¯\\_(ツ)_/¯
