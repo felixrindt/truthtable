@@ -16,6 +16,36 @@ truthtable reads in a logical expression and generates from that a LaTeX tabular
 For more examples, look into the [example folder](../master/example).
 
 ## Input Syntax
+The program supports a number of logical operators and their notation:
+- disjunction
+  - `or`, `|`, `\or`, `\vee`, `\lor`
+- conjunction
+  - `and`, `&`, `\and`, `\wedge`, `\land`
+- negation
+  - `not`, `!`, `\neg`, `\lnot`
+- xor
+  - `xor`, `^`, `\oplus`, `\veebar`
+- implication
+  - `>`, `\imp`, `\rightarrow`, `\implies`
+- equivalence
+  - `=`, `\aeq`, `\leftrightarrow`
+  
+Please note, that the representation you input will be used in the output.
+
+## Running the program. 
+
+The expression for which the truthtable is to be build is input via one of two ways:
+1. the standard input
+```
+$ python3 truthtable.py
+a or b
+[output is printed...]
+```
+2. a file
+```
+$ python3 truthtable.py examples/1.txt
+[output is printed...]
+```
 
 ¯\\_(ツ)_/¯
 
