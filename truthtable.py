@@ -5,6 +5,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='A LaTeX truthtable generator')
 parser.add_argument("inputFile", help="File from which the logical expression is read.")
+parser.add_argument("--nohlines", dest="nohlines", default=False, const=True, nargs="?", help="Don't put seperatiing horizontal lines in the output table.")
 
 args = parser.parse_args()
 
@@ -282,7 +283,10 @@ for varval, result, parts in rows:
         if index+1<len(parts):
             out += "&"
 
-    out += "\\\\\hline\n"
+    if not args.nohlines:
+        out += "\\\\\hline\n"
+    else:
+        out += "\\\\\n"
 
 out += "\\end{tabular}"
 print(out)
