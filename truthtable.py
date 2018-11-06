@@ -1,8 +1,14 @@
 #!/usr/bin/python3
 
 import sys
+import argparse
 
-if len(sys.argv) > 1 and sys.argv[1] != "-":
+parser = argparse.ArgumentParser(description='A LaTeX truthtable generator')
+parser.add_argument("inputFile", help="File from which the logical expression is read.")
+
+args = parser.parse_args()
+
+if args.inputFile:
     try:
         text = "\n".join(open(sys.argv[1]).readlines())
     except:
