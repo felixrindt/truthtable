@@ -258,7 +258,7 @@ for row in range(2**len(variables)):
     rows.append((varval, result, parts))
 
 out = "\\begin{tabular}{|"
-out += "c|" * len(variables) + "c"*(len(parts)) + "|} \\hline\n"
+out += "c|" * len(variables) + "|" + "c"*(len(parts)) + "|} \\hline\n"
 
 for var in variables:
     out += "$" + var + "$&"
