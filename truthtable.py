@@ -4,9 +4,9 @@ import sys
 import argparse
 
 parser = argparse.ArgumentParser(description='A LaTeX truthtable generator')
-parser.add_argument("inputFile",
+parser.add_argument("input",
                     nargs="?",
-                    help="File from which the logical expression is read.")
+                    help="File from which the logical expression is read or expression as a string.")
 parser.add_argument("--nohlines",
                     dest="nohlines",
                     default=False,
@@ -16,9 +16,9 @@ parser.add_argument("--nohlines",
 
 args = parser.parse_args()
 
-if args.inputFile:
+if args.input and args.input != "-":
     try:
-        text = "\n".join(open(sys.argv[1]).readlines())
+        text = "\n".join(open(args.input).readlines())
     except:
         text = " ".join(sys.argv[1:])
 else:
