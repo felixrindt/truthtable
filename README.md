@@ -6,12 +6,12 @@ truthtable reads in a logical expression and generates from that a LaTeX tabular
 ## Example
 `\neg a \AND b` generates
 
-| a | b | &not; | a | &and; | b |
-|---|---|-------|---|-------|---|
-| `0` | `0` | 1 | 0 | **0** | 0 | 
-| `0` | `1` | 1 | 0 | **1** | 1 | 
-| `1` | `0` | 0 | 1 | **0** | 0 | 
-| `1` | `1` | 0 | 1 | **0** | 1 |
+| a   | b   | &not; | a | &and; | b |
+|-----|-----|-------|---|-------|---|
+| `0` | `0` |     1 | 0 | **0** | 0 |
+| `0` | `1` |     1 | 0 | **1** | 1 |
+| `1` | `0` |     0 | 1 | **0** | 0 |
+| `1` | `1` |     0 | 1 | **0** | 1 |
 
 For more examples, look into the [example folder](../master/example).
 
