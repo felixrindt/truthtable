@@ -4,8 +4,15 @@ import sys
 import argparse
 
 parser = argparse.ArgumentParser(description='A LaTeX truthtable generator')
-parser.add_argument("inputFile", help="File from which the logical expression is read.")
-parser.add_argument("--nohlines", dest="nohlines", default=False, const=True, nargs="?", help="Don't put seperatiing horizontal lines in the output table.")
+parser.add_argument("inputFile",
+                    nargs="?",
+                    help="File from which the logical expression is read.")
+parser.add_argument("--nohlines",
+                    dest="nohlines",
+                    default=False,
+                    const=True,
+                    nargs="?",
+                    help="Don't put seperatiing horizontal lines in the output table.")
 
 args = parser.parse_args()
 
