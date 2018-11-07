@@ -35,7 +35,7 @@ Please note, that the representation you input will be used in the output.
 ## Running the program. 
 
 The expression for which the truthtable is to be build is input via one of two ways:
-1. the standard input
+1. first line of the standard input
 ```
 $ python3 truthtable.py
 a or b
@@ -44,6 +44,11 @@ a or b
 2. a file
 ```
 $ python3 truthtable.py examples/1.txt
+[output is printed...]
+```
+3. commandline argument
+```
+$ python3 truthtable.py "a or b"
 [output is printed...]
 ```
 
