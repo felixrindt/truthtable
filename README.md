@@ -30,7 +30,7 @@ The program supports a number of logical operators and their notation:
 - equivalence
   - `=`, `\aeq`, `\leftrightarrow`
   
-Please note, that the representation you input will be used in the output.
+Please note that the output will use the same token representation as your input.
 
 ## Running the program. 
 
