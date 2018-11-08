@@ -9,10 +9,15 @@ parser.add_argument("input",
                     help="File from which the logical expression is read or expression as a string.")
 parser.add_argument("--nohlines",
                     dest="nohlines",
-                    default=False,
-                    const=True,
-                    nargs="?",
                     help="Don't put seperatiing horizontal lines in the output table.")
+parser.add_argument("-t", "--true-symbol",
+                    dest="true_symbol",
+                    default="1",
+                    help="Symbol to use in the table to refer to boolean true.")
+parser.add_argument("-f", "--false-symbol",
+                    dest="false_symbol",
+                    default="0",
+                    help="Symbol to use in the table to refer to boolean false.")
 
 args = parser.parse_args()
 
@@ -261,9 +266,9 @@ def booln(v):
     if v == None:
         return ""
     elif v:
-        return "1"
+        return args.true_symbol
     else:
-        return "0"
+        return args.false_symbol
 
 rows = []
 for row in range(2**len(variables)):
