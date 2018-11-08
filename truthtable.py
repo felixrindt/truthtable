@@ -9,6 +9,7 @@ parser.add_argument("input",
                     help="File from which the logical expression is read or expression as a string.")
 parser.add_argument("--nohlines",
                     dest="nohlines",
+                    action="store_true",
                     help="Don't put seperatiing horizontal lines in the output table.")
 parser.add_argument("-t", "--true-symbol",
                     dest="true_symbol",
