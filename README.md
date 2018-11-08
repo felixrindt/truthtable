@@ -34,7 +34,7 @@ Please note that the output will use the same token representation as your input
 
 ## Running the program. 
 
-The expression for which the truthtable is to be build is input via one of two ways:
+The expression for which the truthtable is to be build is input via one of three ways:
 1. first line of the standard input
 ```
 $ python3 truthtable.py
