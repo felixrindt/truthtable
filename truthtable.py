@@ -301,6 +301,9 @@ for varval, result, parts in rows:
     else:
         out += "\\\\\n"
 
+if args.nohlines:
+    out += "\hline"
+
 out += "\\end{tabular}"
 print(out)
 
