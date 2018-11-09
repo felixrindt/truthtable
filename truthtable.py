@@ -6,19 +6,19 @@ import argparse
 parser = argparse.ArgumentParser(description='A LaTeX truthtable generator')
 parser.add_argument("input",
                     nargs="?",
-                    help="File from which the logical expression is read or expression as a string.")
+                    help="file from which the logical expression is read or expression as a string")
 parser.add_argument("--nohlines",
                     dest="nohlines",
                     action="store_true",
-                    help="Don't put seperatiing horizontal lines in the output table.")
+                    help="don't put seperating horizontal lines in the output table")
 parser.add_argument("-t", "--true-symbol",
                     dest="true_symbol",
                     default="1",
-                    help="Symbol to use in the table to refer to boolean true.")
+                    help="symbol to use in the table to refer to boolean true")
 parser.add_argument("-f", "--false-symbol",
                     dest="false_symbol",
                     default="0",
-                    help="Symbol to use in the table to refer to boolean false.")
+                    help="symbol to use in the table to refer to boolean false")
 
 args = parser.parse_args()
 
